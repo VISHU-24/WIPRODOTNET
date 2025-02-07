@@ -1,46 +1,33 @@
-﻿using AssignmentQ1;
-namespace Test
+using SampleTestDemo;
+namespace TestMathOP
 {
     [TestClass]
-    public sealed class Test
+    public sealed class Test1
     {
-        [TestMethod]
-        public void Add()
+        [TestMethod]//Test Attribute
+        public void TestMethod1()
         {
-            Calculator cal = new Calculator();
-            double res = cal.Add(20, 3);
-            Assert.AreEqual(res, 23);
+            //3 A's - Arrange, Act and Assert
+            //test for Add method
+            MathOp mth = new MathOp();//Arrange
+           int res = mth.Add(20, 20); //Act
+            Assert.AreEqual(res, 40);//Assert Passed if expected(res) matches with actual value
         }
-        [TestMethod]
-        public void Sub()
+        [TestMethod]//Test Attribute
+        public void TestMethodSub()
         {
-            Calculator cal = new Calculator();
-            double res = cal.Subtract(20, 30);
-            Assert.AreEqual(res, -10);
+            //test for Add method
+            MathOp mth = new MathOp();
+            int res = mth.Sub(50, 20);
+            Assert.AreEqual(res, 30);//Passed if expected(res) matches with actual value
         }
-        [TestMethod]
-        public void Mul()
+        [TestMethod]//Test Attribute
+        public void TestMethodProd()
         {
-            Calculator cal = new Calculator();
-            double res = cal.Multiply(10, 4);
-            Assert.AreEqual(res, 40);
+            //test for Add method
+            MathOp mth = new MathOp();
+            int res = mth.Mul(50, 40);
+            Assert.AreEqual(res, 500);//Passed if expected(res) matches with actual value
         }
-        [TestMethod]
-        public void Div()
-        {
-
-            Calculator cal = new Calculator();
-            double res = cal.Divide(30, 3);
-            Assert.AreEqual(10, res);
-
-        }
-        [TestMethod]
-        public void DivbyZero()
-        {
-            Calculator cal = new Calculator();
-            Assert.ThrowsException<DivideByZeroException>(() => cal.Divide(10, 0));
-        }
-
     }
-
 }
